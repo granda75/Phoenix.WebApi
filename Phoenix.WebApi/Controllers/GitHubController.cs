@@ -13,9 +13,18 @@ using System.Web.Http.Cors;
 
 namespace Phoenix.WebApi.Controllers
 {
+    /// <summary>
+    /// To enable Cors for the GitHubController for all origins, headers and methods
+    /// </summary>
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class GitHubController : ApiController
     {
+
+        /// <summary>
+        /// The method takes data from GitHub repository by repository name
+        /// </summary>
+        /// <param name="repositoryName"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<List<GitHubRepositoryItem>> GetGitHub(string repositoryName)
         {
@@ -42,6 +51,10 @@ namespace Phoenix.WebApi.Controllers
             return repoItemsList;
         }
 
+        /// <summary>
+        /// The method returns bookmarked items stored in GitHubItems.json file
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public List<GitHubRepositoryItem> GetBookmarkedItems()
         {
@@ -51,6 +64,10 @@ namespace Phoenix.WebApi.Controllers
             return list;
         }
 
+        /// <summary>
+        /// The method performs repository item bookmarking and store the item in the GitHubItems.json
+        /// </summary>
+        /// <param name="item"></param>
         [HttpPost]
         public void BookmarkRepoItem([FromBody] GitHubRepositoryItem item)
         {
@@ -68,6 +85,7 @@ namespace Phoenix.WebApi.Controllers
             var newJson = JsonConvert.SerializeObject(list, Formatting.Indented);
             File.WriteAllText(filePath, newJson);
 
+            //If Session was worked for subsequent request from Angular client, I was using the code to put GitHubRepositoryItem to Session
             //Dictionary<int, GitHubRepositoryItem> repoDict = (Dictionary<int, GitHubRepositoryItem>)HttpContext.Current.Session["RepoItems"];
             //if (repoDict == null)
             //{

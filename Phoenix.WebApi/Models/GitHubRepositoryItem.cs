@@ -4,6 +4,9 @@ using System.Runtime.InteropServices;
 
 namespace Phoenix.WebApi.Models
 {
+    /// <summary>
+    /// GitHubRepositoryItem entity
+    /// </summary>
     public class GitHubRepositoryItem
     {
         public int id { get; set; }

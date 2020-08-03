@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
-using System.Web.Http.Cors;
+﻿using System.Web.Http;
+
 
 namespace Phoenix.WebApi
 {
@@ -11,6 +8,8 @@ namespace Phoenix.WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            //To enable CORS for the requests from Angular application for the application
             config.EnableCors();
 
             // Web API routes
