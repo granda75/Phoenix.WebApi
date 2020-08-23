@@ -1,5 +1,5 @@
 # Phoenix.WebApi
-Project for Phoenix company. The project performs GitHub repositories search using GitHub API.
+The project performs GitHub repositories search using GitHub API.
 
 
 The project was developed on the server with .NET Framework(Web API) with Visual Studio Community 2019, on the client side with Angular 9 and Bootstrap CSS with Visual Studio Code, version 1.47.1.
